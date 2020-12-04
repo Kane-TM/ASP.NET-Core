@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+    Layout = "_Layout";
+}
+
+<p>Choose file or folder then double click icon RecycleBin to delete forever</p>
+<div class="row p-3">
+    <div class="del-folder">
+        @foreach (var item in ViewBag.Folder)
+        {
+            <div id="@item.Id" class="del-item" type="folder"><img src="~/img/folder.png" /><span>@item.FolderName</span></div>
+        }
+
+    </div>
+    <div class="del-file">
+        @foreach (var item in ViewBag.File)
+        {
+            <div id="@item.Id" class="del-item" type="file"><img src="~/img/file.png" /><span>@item.FileName</span></div>
+        }
+    </div>
+</div>

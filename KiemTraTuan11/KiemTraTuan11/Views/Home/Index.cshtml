@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "_Layout";
+ }
+
+
+    <br />
+    @*<div class="container">
+        <div class="breadcrumb">
+            Root\Thumuc
+        </div>
+        <div id="folder-container">
+            <span><a><img src="~/img/folder.png" /></a> </span>
+            <span><a><img src="~/img/folder.png" /></a> </span>
+            <span><a><img src="~/img/folder.png" /></a> </span>
+            <span><a><img src="~/img/folder.png" /></a> </span>
+        </div>
+        <div id="file-container">
+            <span><a><img src="~/img/file.png" /></a> </span>
+        </div>
+    </div>*@
+
+    <div class="breadcrumb">
+        Root\Folder
+    </div>
+    <div id="folder-container d-flex flex-wrap">
+        @foreach (var folders in ViewBag.Folder)
+        {
+        <span>
+            <a  asp-controller="Home" asp-action="Index" asp-route-id="@folders.Id">
+                <img id="img-folder" src="~/img/folder.png" />
+            </a>
+            <p>@folders.FolderName</p>
+        </span>
+        }
+    </div>
+    <div id="file-container d-flex flex-wrap">
+        @foreach (var files in ViewBag.File)
+        {
+            <span>
+                <a>
+                    <img src="~/img/file.png" />
+                </a>
+                <p>@files.FileName</p>
+            </span>
+        }
+    </div>
+
